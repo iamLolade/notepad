@@ -1,8 +1,24 @@
+import { useEffect, useState } from "react";
+import { Container } from "@mui/material";
+
 const Notes = () => {
-    return ( 
-        <div>
-            <h1>Note page</h1>
-        </div>
+
+    const [notes, setNotes] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:8000/notes")
+            .then(res => res.json())
+            .then(data => setNotes(data))
+    }, [])
+
+    return (
+        <Container> 
+            <div>
+                {notes.map(note => (
+                    <p key={note.id}>{ note.title }</p>
+                ))}
+            </div>
+        </Container>
      );
 }
  

@@ -7,8 +7,8 @@ import { TextField, Radio, RadioGroup, FormControlLabel, FormLabel, FormControl 
 //Custom styles
 const styles = {
     field: {
-        marginTop: 5,
-        marginBottom: 5,
+        marginTop: 3,
+        marginBottom: 3,
         display: "block"
     }
 }

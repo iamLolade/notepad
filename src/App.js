@@ -3,6 +3,7 @@ import Notes from "./pages/Notes"
 import Create from "./pages/Create"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 
+//custom theme
 const theme = createTheme({
   palette: {
     primary: {

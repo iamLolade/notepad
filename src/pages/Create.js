@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { Button, Container } from "@mui/material";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+//Custom styles
 // const styles = {
 //     fontSize: 90
 // }
@@ -19,6 +20,7 @@ const Create = () => {
             </Typography>
             <Button 
                 // sx={styles}
+                onClick={() => console.log("You clicked me!")}
                 variant="contained" 
                 color="primary"
                 endIcon={<KeyboardArrowRightIcon />}

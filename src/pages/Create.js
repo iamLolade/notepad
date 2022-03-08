@@ -1,5 +1,7 @@
 import { Typography } from "@mui/material";
 import { Button, Container } from "@mui/material";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 
 const Create = () => {
     return ( 
@@ -12,7 +14,12 @@ const Create = () => {
             >
                 Create a New Note
             </Typography>
-            <Button variant="contained" color="primary">Submit</Button>
+            <Button 
+                variant="contained" 
+                color="primary"
+                endIcon={<KeyboardArrowRightIcon />}
+            >
+                Submit</Button>
         </Container>
      );
 }

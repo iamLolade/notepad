@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Typography } from "@mui/material";
 import { Button, Container } from "@mui/material";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { TextField } from "@mui/material";
+import { TextField, Radio, RadioGroup, FormControlLabel, FormLabel, FormControl } from "@mui/material";
 
 //Custom styles
 const styles = {
@@ -18,6 +18,7 @@ const Create = () => {
     const [details, setDetails] = useState("")
     const [titleError, setTitleError] = useState(false);
     const [detailsError, setDetailsError] = useState(false)
+    const [category, setCategory] = useState("todos")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -34,7 +35,7 @@ const Create = () => {
         }
 
         if(title && details) {
-            console.log(title, details)
+            console.log(title, details, category)
         }
     }
     return ( 
@@ -71,6 +72,15 @@ const Create = () => {
                     required
                     error={detailsError}
                 />
+                <FormControl sx={styles.field}>
+                    <FormLabel>Note Category</FormLabel>
+                    <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <FormControlLabel control={<Radio/>} value="todos" label="Todos"/>
+                        <FormControlLabel control={<Radio/>} value="reminder" label="Reminders"/>
+                        <FormControlLabel control={<Radio/>} value="work" label="Work"/>
+                    </RadioGroup>
+
+                </FormControl>
                 <Button 
                     onClick={handleSubmit}
                     variant="contained" 

@@ -7,7 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles"
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#fefefe"
+      main: "rgb(40, 100, 141)"
     }
   }
 })

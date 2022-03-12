@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { Button, Container } from "@mui/material";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { TextField, Radio, RadioGroup, FormControlLabel, FormLabel, FormControl } from "@mui/material";
+import { useNavigate } from "react-router-dom"
 
 //Custom styles
 const styles = {
@@ -16,6 +17,7 @@ const styles = {
 const Create = () => {
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("")
+    const navigate = useNavigate()
     const [titleError, setTitleError] = useState(false);
     const [detailsError, setDetailsError] = useState(false)
     const [category, setCategory] = useState("todos")
@@ -35,7 +37,11 @@ const Create = () => {
         }
 
         if(title && details) {
-            console.log(title, details, category)
+            fetch("http://localhost:8000/notes", {
+                method: "POST",
+                headers: {"Content-type": "application/json"},
+                body: JSON.stringify({ title, details, category })
+            }).then(() => navigate("/"))
         }
     }
     return ( 
@@ -77,6 +83,7 @@ const Create = () => {
                     <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)}>
                         <FormControlLabel control={<Radio/>} value="todos" label="Todos"/>
                         <FormControlLabel control={<Radio/>} value="reminder" label="Reminders"/>
+                        <FormControlLabel control={<Radio/>} value="bill" label="Bills"/>
                         <FormControlLabel control={<Radio/>} value="work" label="Work"/>
                     </RadioGroup>
 
